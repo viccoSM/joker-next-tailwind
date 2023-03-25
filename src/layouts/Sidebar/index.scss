@@ -1,0 +1,15 @@
+.sidebar {
+  @apply w-full max-w-[315px] h-screen bg-white pb-9 pl-6 pr-4 flex flex-col font-semibold;
+
+  &__nav-item {
+    @apply relative w-full cursor-pointer flex justify-between space-x-2 space-x-3 items-center py-3 pl-3 rounded-lg transition ease-in-out delay-150;
+
+    &.path {
+      @apply hover:bg-blue-300 hover:text-white;
+
+      &.active{
+        @apply bg-blue-300 text-white;
+      }
+    }
+  }
+}
