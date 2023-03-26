@@ -29,17 +29,6 @@ export const navigationSidebar: pathSidebarType[] = [
         name: 'Inputs',
         path: '/form/input'
       },
-      {
-        id: 'formInput',
-        name: 'Inputs',
-        path: '/form/input'
-      }
     ]
-  },
-  {
-    id: 'test',
-    name: 'Dashboard',
-    path: '/test',
-    active: ['/test']
   },
 ]

@@ -26,3 +26,17 @@ select:-webkit-autofill:focus {
 html {
   @apply text-gray-700;
 }
+
+// Custom Scroll Bar
+::-webkit-scrollbar {
+  width: 4px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: transparent;
+  border-radius: 5px;
+}
