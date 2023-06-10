@@ -5,7 +5,7 @@ interface FormInputProps {
   id: string
   onChange: (arg: any) => void;
   placeholder?: string
-  type?: 'email' | 'text' | 'number'
+  type?: 'email' | 'text' | 'number' | 'password'
   label?: string
   append?: ReactNode
   prepend?: ReactNode

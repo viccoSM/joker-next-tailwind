@@ -1,1 +1,1 @@
-export const mailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+export const MailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
