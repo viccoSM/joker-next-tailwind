@@ -2,18 +2,19 @@ import React, { FC, ReactNode } from 'react';
 import clsxm from "@/utils/clsxm";
 
 interface FormInputProps {
-  id: string
-  onChange: (arg: any) => void;
-  placeholder?: string
-  type?: 'email' | 'text' | 'number' | 'password'
   label?: string
+  id: string
+  placeholder?: string
+  className?: string
+  feedback?: string
+  value: string | number
   append?: ReactNode
   prepend?: ReactNode
-  className?: string
   formatter?: (value: string) => string
+  onChange: (arg: any) => void;
+  type?: 'email' | 'text' | 'number' | 'password'
   isValid?: boolean
   required?:boolean
-  value: string | number
 }
 
 const FormInput:FC<FormInputProps> = ({onChange, required, formatter, isValid=true, ...props}) => {
@@ -47,7 +48,7 @@ const FormInput:FC<FormInputProps> = ({onChange, required, formatter, isValid=tr
           id={props.id}
           type={props.type}
           placeholder={props.placeholder}
-          className={clsxm('outline-none flex-1 w-full -internal-autofill-selected:bg-transparent',
+          className={clsxm('outline-none flex-1 w-full -internal-autofill-selected:bg-transparent appearance-none',
             props.className,
             props.prepend && 'pl-2',
             props.append && 'pr-2',
@@ -60,6 +61,9 @@ const FormInput:FC<FormInputProps> = ({onChange, required, formatter, isValid=tr
         {props.append && props.append}
 
       </div>
+      {String(props?.value)?.length > 0 && !isValid && (
+        <p className='text-red-400 text-sm mx-1'>{props.feedback}</p>
+      )}
     </div>
   );
 }

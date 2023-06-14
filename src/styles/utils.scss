@@ -2,3 +2,15 @@
   content: "";
   @apply z-10 absolute inset-0 bg-transparent pointer-events-auto;
 }
+
+ /* Untuk browser WebKit (Chrome, Safari) */
+ input[type="number"]::-webkit-inner-spin-button,
+ input[type="number"]::-webkit-outer-spin-button {
+   -webkit-appearance: none;
+   margin: 0;
+ }
+
+ /* Untuk browser Firefox */
+ input[type="number"] {
+   -moz-appearance: textfield;
+ }
