@@ -68,7 +68,10 @@ const Sidebar = () => {
         </div>
       </div>
 
-      <button className='flex space-x-2 items-center'>
+      <button 
+        className='flex space-x-2 items-center'
+        onClick={() => router.push("/login")}
+      >
         <LogOut/><p>Logout</p>
       </button>
     </section>

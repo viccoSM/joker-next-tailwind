@@ -1,6 +1,7 @@
 import clsxm from '@/utils/clsxm';
 import { faCircleNotch } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import Link from 'next/link';
 import React, { FC, ReactNode, useState } from 'react';
 
 interface CustomButtonProps {
@@ -8,10 +9,12 @@ interface CustomButtonProps {
   onClick?: (e: any) => void;
   onSubmit?: (e: any) => void;
   type?: 'button' | 'submit' | 'reset';
+  link?: string;
   id?: string;
   className?: string;
   disabled?: boolean;
-  isLoading?: boolean
+  isLoading?: boolean;
+  required?:boolean
 }
 
 const CustomButton: FC<CustomButtonProps> = ({
@@ -33,13 +36,31 @@ const CustomButton: FC<CustomButtonProps> = ({
     setInternalLoading(false);
   };
 
+  // Link
+  if(props.link){
+    return (
+      <>
+      <Link 
+        href={props.link}
+        id={props.id}
+        className={clsxm('disabled:opacity-90 text-white',
+          props.className
+        )}
+      >
+        {children}
+      </Link>
+      </>
+    )
+  }
+
+  // Button
   return (
     <button
       type={props.type || 'button'}
       id={props.id}
       disabled={props.disabled || isLoading || internalLoading}
-      onClick={handleClick}
-      className={clsxm('disabled:opacity-90 text-white',
+      onClick={onClick && handleClick}
+      className={clsxm('disabled:opacity-70 text-white',
         props.className
       )}
     >

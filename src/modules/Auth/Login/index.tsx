@@ -31,7 +31,7 @@ const Login = () => {
 
   return (
     <section className='h-screen w-full flex justify-center items-center bg-gray-200'>
-      <form  onSubmit={handleSubmit} className='w-full max-w-md bg-white rounded-xl p-6 space-y-3 text-center'>
+      <form  onSubmit={handleSubmit} method='post' className='w-full max-w-md bg-white rounded-xl p-6 space-y-3 text-center'>
         <h2 className='font-semibold'>Login</h2>
         <div className="space-y-3">
           <FormInput
@@ -51,6 +51,7 @@ const Login = () => {
           <CustomButton
             className='w-full bg-blue-300 p-2 rounded-xl'
             type='submit'
+            disabled={!form.email || !form.password}
             isLoading={isLoading}
           >
             Login
