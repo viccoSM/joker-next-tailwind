@@ -43,7 +43,7 @@ const CustomButton: FC<CustomButtonProps> = ({
       <Link 
         href={props.link}
         id={props.id}
-        className={clsxm('disabled:opacity-90 text-white',
+        className={clsxm('disabled:opacity-70 font-medium',
           props.className
         )}
       >
@@ -60,7 +60,7 @@ const CustomButton: FC<CustomButtonProps> = ({
       id={props.id}
       disabled={props.disabled || isLoading || internalLoading}
       onClick={onClick && handleClick}
-      className={clsxm('disabled:opacity-70 text-white',
+      className={clsxm('disabled:opacity-70 font-medium',
         props.className
       )}
     >

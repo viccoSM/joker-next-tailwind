@@ -22,7 +22,10 @@ export const navigationSidebar: pathSidebarType[] = [
   {
     id: 'form',
     name: 'Form',
-    active: ['/form/input'],
+    active: [
+      '/form/input',
+      '/form/toast'
+    ],
     children: [
       {
         id: 'formInput',
@@ -30,9 +33,9 @@ export const navigationSidebar: pathSidebarType[] = [
         path: '/form/input'
       },
       {
-        id: 'formTest',
-        name: 'Test',
-        path: '/form/test'
+        id: 'formToast',
+        name: 'Toast',
+        path: '/form/toast'
       },
     ]
   },
