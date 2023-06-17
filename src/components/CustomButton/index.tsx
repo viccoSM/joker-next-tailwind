@@ -29,12 +29,20 @@ const CustomButton: FC<CustomButtonProps> = ({
   const handleClick = async (e: any) => {
     setInternalLoading(true);
     try {
-      if (onClick) await onClick(e);
+      if (onClick) {
+        await new Promise<void>((resolve) => {
+          setTimeout(async () => {
+            await onClick(e); // Wait for the specific operation
+            resolve();
+          }, 300); // Delay time, in milliseconds
+        });
+      }
     } catch (error) {
       console.error(error);
     }
-    setInternalLoading(false);
+    setInternalLoading(false); // Stop the loading after the operation is completed
   };
+  
 
   // Link
   if(props.link){

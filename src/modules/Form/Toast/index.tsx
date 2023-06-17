@@ -1,35 +1,37 @@
 import Breadcrumbs from '@/components/Breadcrumbs';
 import CustomButton from '@/components/CustomButton';
-import { AppContext } from '@/context';
 import useToast from '@/context/hooksContext/toast';
 import DashboardLayout from '@/layouts/DashboardLayout';
-import React, { useContext } from 'react';
+import axios from 'axios';
+import React from 'react';
 
 function Toast() {
-  const {showToast} = useToast()
+  const { showToast } = useToast();
 
-  const handleShowToast = () => {
+  const handleShowToast = async () => {
+    try {
+       // Fetch data from API using axios
+       const response = await axios.get('https://jsonplaceholder.typicode.com/posts?_limit=10');
+       const data = response.data;
+
+      // Do something with the data
+      console.log(data);
+    } catch (error) {
+      console.error(error);
+    }
+
     showToast('Hello, this is a toast message!', 'success');
-  };
+  }
 
-  const showToastTest = () => {
-    showToast('Hello', 'success');
-  };
-  
   return (
     <DashboardLayout>
       <Breadcrumbs title="Toast" />
       <div className="pr-6">
         <div className="bg-white rounded-xl w-full p-6 space-y-4">
-          <CustomButton 
-          className="w-full bg-blue-300 p-2 rounded-xl text-white"
-          onClick={handleShowToast}>
+          <CustomButton
+            className="w-full bg-blue-300 p-2 rounded-xl text-white"
+            onClick={handleShowToast}>
             Hello
-          </CustomButton>
-          <CustomButton 
-          className="w-full bg-blue-300 p-2 rounded-xl text-white"
-          onClick={showToastTest}>
-            Test
           </CustomButton>
         </div>
       </div>
