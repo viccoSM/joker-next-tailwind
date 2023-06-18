@@ -49,7 +49,8 @@ const Login = () => {
             onChange={handleChange}
           />
           <CustomButton
-            className='w-full bg-blue-300 p-2 rounded-xl text-white'
+            className='w-full rounded-xl'
+            theme='primary'
             type='submit'
             disabled={!form.email || !form.password}
             isLoading={isLoading}

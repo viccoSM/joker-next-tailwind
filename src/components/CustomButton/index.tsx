@@ -9,12 +9,21 @@ interface CustomButtonProps {
   onClick?: (e: any) => void;
   onSubmit?: (e: any) => void;
   type?: 'button' | 'submit' | 'reset';
+  theme?:
+    | 'primary'
+    | 'secondary'
+    | 'info'
+    | 'danger'
+    | 'warning'
+    | 'success'
+    | 'light'
+    | 'dark';
   link?: string;
   id?: string;
   className?: string;
   disabled?: boolean;
   isLoading?: boolean;
-  required?:boolean
+  required?: boolean;
 }
 
 const CustomButton: FC<CustomButtonProps> = ({
@@ -42,23 +51,23 @@ const CustomButton: FC<CustomButtonProps> = ({
     }
     setInternalLoading(false); // Stop the loading after the operation is completed
   };
-  
 
   // Link
-  if(props.link){
+  if (props.link) {
     return (
       <>
-      <Link 
-        href={props.link}
-        id={props.id}
-        className={clsxm('disabled:opacity-70 font-medium',
-          props.className
-        )}
-      >
-        {children}
-      </Link>
+        <Link
+          href={props.link}
+          id={props.id}
+          className={clsxm(
+            'disabled:opacity-70 font-medium',
+            props.theme && `theme theme-${props.theme}`,
+            props.className
+          )}>
+          {children}
+        </Link>
       </>
-    )
+    );
   }
 
   // Button
@@ -68,10 +77,11 @@ const CustomButton: FC<CustomButtonProps> = ({
       id={props.id}
       disabled={props.disabled || isLoading || internalLoading}
       onClick={onClick && handleClick}
-      className={clsxm('disabled:opacity-70 font-medium',
+      className={clsxm(
+        'disabled:opacity-70 font-medium',
+        props.theme && `theme theme-${props.theme}`,
         props.className
-      )}
-    >
+      )}>
       {isLoading || internalLoading ? (
         <FontAwesomeIcon icon={faCircleNotch} spin />
       ) : (

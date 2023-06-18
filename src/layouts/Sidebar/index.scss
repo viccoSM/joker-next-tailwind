@@ -5,10 +5,10 @@
     @apply relative w-full cursor-pointer flex justify-between space-x-2 space-x-3 items-center py-3 pl-3 rounded-lg transition ease-in-out delay-150;
 
     &.path {
-      @apply hover:bg-blue-300 hover:text-white;
+      @apply hover:bg-primary hover:text-white;
 
       &.active{
-        @apply bg-blue-300 text-white;
+        @apply bg-primary text-white;
       }
     }
   }

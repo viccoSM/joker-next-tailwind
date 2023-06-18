@@ -1,0 +1,28 @@
+.theme {
+  @apply p-2 text-dark;
+
+  &-primary {
+    @apply bg-primary text-white;
+  }
+  &-secondary {
+    @apply bg-secondary text-white;
+  }
+  &-info {
+    @apply bg-info text-white;
+  }
+  &-warning {
+    @apply bg-warning text-white;
+  }
+  &-danger {
+    @apply bg-danger text-white;
+  }
+  &-success {
+    @apply bg-success text-white;
+  }
+  &-light {
+    @apply bg-light text-primary;
+  }
+  &-dark {
+    @apply bg-dark text-white;
+  }
+}

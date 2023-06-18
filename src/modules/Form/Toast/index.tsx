@@ -29,7 +29,8 @@ function Toast() {
       <div className="pr-6">
         <div className="bg-white rounded-xl w-full p-6 space-y-4">
           <CustomButton
-            className="w-full bg-blue-300 p-2 rounded-xl text-white"
+            className="w-full rounded-xl text-white"
+            theme='primary'
             onClick={handleShowToast}>
             Hello
           </CustomButton>
